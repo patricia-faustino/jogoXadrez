@@ -22,5 +22,14 @@ namespace tabuleiro
         {
             return pecas[linhas, colunas];
         }
+
+        //Colocar peca p na posicao pos
+        public void colocarPeca(Peca p, Posicao pos)
+        {
+            // ir na matriz na posicao pecas e posicao coluna  e receber p
+            pecas[pos.linhas, pos.colunas] = p;
+            // ir na peca p e dizer que a peca p vai ter uma posicao pos
+            p.posicao = pos;
+        }
     }
 }
