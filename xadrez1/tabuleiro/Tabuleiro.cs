@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace tabuleiro
+﻿namespace tabuleiro
 {
     class Tabuleiro
     {
@@ -17,25 +13,24 @@ namespace tabuleiro
             pecas = new Peca[linhas, colunas];
         }
 
-        
+
         //permicao para programador acessar peca individual já que a matriz peca é private
-        public Peca peca(int linhas, int colunas)
+        public Peca peca(int linha, int coluna)
         {
-            return pecas[linhas, colunas];
+            return pecas[linha, coluna];
         }
 
         //Sobrecarga para receber pela matriz pela posicao indicada
         public Peca peca(Posicao pos)
         {
-            return pecas[pos.linhas, pos.colunas];
+            return pecas[pos.linha, pos.coluna];
         }
         //Metodo para verificar se existe uma posicao e se ela eh valida
         public bool existePeca(Posicao pos)
         {
             validarPosicao(pos);
-            return peca(pos)!=null;
+            return peca(pos) != null;
         }
-
 
         //Colocar peca p na posicao pos
         public void colocarPeca(Peca p, Posicao pos)
@@ -46,26 +41,26 @@ namespace tabuleiro
                 throw new TabuleiroException("Já existe uma peça nessa posição.");
             }
             // ir na matriz na posicao pecas e posicao coluna  e receber p
-            pecas[pos.linhas, pos.colunas] = p;
+            pecas[pos.linha, pos.coluna] = p;
             // ir na peca p e dizer que a peca p vai ter uma posicao pos
             p.posicao = pos;
         }
         public Peca retirarPeca(Posicao pos)
         {
-            if(peca(pos) == null)
+            if (peca(pos) == null)
             {
                 return null;
             }
             //
             Peca aux = peca(pos);
             aux.posicao = null; // aux foi retirada
-            pecas[pos.linhas, pos.colunas] = null; // posicao vazia
+            pecas[pos.linha, pos.coluna] = null; // posicao vazia
             return aux;
 
         }
         public bool posicaoValida(Posicao pos)
         {
-            if(pos.linhas < 0 || pos.linhas >= linhas || pos.colunas < 0 || pos.colunas >= colunas)
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
             {
                 return false;
             }
@@ -84,3 +79,4 @@ namespace tabuleiro
         }
     }
 }
+
