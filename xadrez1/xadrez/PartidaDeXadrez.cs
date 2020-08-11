@@ -95,7 +95,7 @@ namespace xadrez
         //Verificar se pode movimentar de origem para destino
         public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
-            if (!tab.peca(origem).podeMoverPara(destino))
+            if (!tab.peca(origem).movimentosPossiveis(destino))
             {
                 throw new TabuleiroException("Posição de destino inválida!");
             }
@@ -201,10 +201,11 @@ namespace xadrez
                     for(int j=0; j< tab.colunas; j++)
                     {
                         if (mat[i, j]){
+                            Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i, j);
-                            Peca pecaCapturada = executaMovimento(x.posicao, destino);
+                            Peca pecaCapturada = executaMovimento(origem, destino);
                             bool testeXeque = estaEmXeque(cor);
-                            defazMovimento(x.posicao, destino, pecaCapturada);
+                            defazMovimento(origem, destino, pecaCapturada);
                             if (!testeXeque)
                             {
                                 return false;

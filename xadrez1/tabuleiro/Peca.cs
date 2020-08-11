@@ -40,7 +40,7 @@
         }
 
         //Melhorar legibilidade em relãção a movimentos possíveis para uma determinada posicao
-        public bool podeMoverPara(Posicao pos)
+        public bool movimentosPossiveis(Posicao pos) //antigo podeMoverPara
         {
             return movimentoPossiveis()[pos.linha, pos.coluna];
         }
