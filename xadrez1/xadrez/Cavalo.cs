@@ -17,13 +17,14 @@ namespace xadrez
             Peca p = tab.peca(pos);
             return p == null || p.cor != cor;
         }
+
         public override bool[,] movimentoPossiveis()
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
             Posicao pos = new Posicao(0, 0);
 
             pos.definirValores(posicao.linha - 1, posicao.coluna - 2);
-            if(tab.posicaoValida(pos) && podeMover(pos))
+            if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
@@ -73,3 +74,4 @@ namespace xadrez
         }
     }
 }
+
