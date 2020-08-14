@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using tabuleiro;
 using xadrez;
 
@@ -36,7 +35,7 @@ namespace xadrez1
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
                         partida.validarPosicaoDeDestino(origem, destino);
 
-                        partida.realizajogada(origem, destino);
+                        partida.realizaJogada(origem, destino);
 
                     }
 
@@ -62,5 +61,6 @@ namespace xadrez1
         }
     }
 }
+
 
 
